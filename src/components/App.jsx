@@ -1,9 +1,12 @@
+import Home from '../pages/Home';
+import Searchbar from './Searchbar';
 
 const App = () => {
-  
-  return(
+
+  return (
     <>
-      <h1>Hello world</h1>
+      <Searchbar />
+      <Home />
     </>
   );
 };
