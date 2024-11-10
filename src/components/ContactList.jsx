@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
+  console.log(contacts);
+
   return (
     <Stack spacing={2} mt={2}>
       {contacts.map(contact => {

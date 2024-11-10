@@ -1,16 +1,13 @@
 import { Button, FormGroup, Paper, Stack, TextField } from '@mui/material';
 import AddBtn from './AddBtn';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../redux/slices/contactsSlice';
 import { useState } from 'react';
-import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from '../redux/slices/contactsSlice';
 
 const Input = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const id = nanoid(10);
 
   const handleName = e => {
     setName(e.target.value);
@@ -20,7 +17,11 @@ const Input = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-	dispatch(addContact({id,name,number}))
+    const item = {
+      name,
+      number,
+    };
+    dispatch(addContact(item));
   };
   return (
     <Paper
