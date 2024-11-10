@@ -1,29 +1,47 @@
 import { Delete, Edit } from '@mui/icons-material';
 import { IconButton, Paper, Stack, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeContact } from '../redux/slices/contactsSlice';
 
-const Contact = () => {
-	return (
-		<Paper elevation={2}>
-			<Stack
-				direction={'row'}
-				alignItems={'center'}
-				sx={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}
-				p={1}
-			>
-				<Stack spacing={2}>
-					<Typography>Name</Typography>
-					<Typography>Number</Typography>
-				</Stack>
-				<Stack>
-					<IconButton>
-						<Delete />
-					</IconButton>
-					<IconButton>
-						<Edit />
-					</IconButton>
-				</Stack>
-			</Stack>
-		</Paper>
-	);
+const Contact = ({ name, number, id }) => {
+  const dispatch = useDispatch();
+  const handleDelete = event => {
+    const contact = event.currentTarget.closest('[role="presentation"]');
+    const contactId = contact ? contact.id : null;
+    dispatch(removeContact(contactId));
+  };
+  return (
+    <Paper elevation={2} id={id} role='presentation'>
+      <Stack
+        direction={'row'}
+        alignItems={'center'}
+        sx={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'space-between',
+        }}
+        p={1}>
+        <Stack spacing={2}>
+          <Typography>Name: {name}</Typography>
+          <Typography>Number: {number}</Typography>
+        </Stack>
+        <Stack>
+          <IconButton onClick={handleDelete}>
+            <Delete />
+          </IconButton>
+          <IconButton>
+            <Edit />
+          </IconButton>
+        </Stack>
+      </Stack>
+    </Paper>
+  );
+};
+
+Contact.propTypes = {
+  id: PropTypes.any,
+  name: PropTypes.string,
+  number: PropTypes.string,
 };
 export default Contact;
