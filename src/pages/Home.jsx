@@ -3,16 +3,18 @@ import { Container } from '@mui/material';
 import ContactList from '../components/ContactList';
 import Input from '../components/Input';
 import AddBtn from '../components/AddBtn';
+import AlertBox from '../components/AlertBox';
 
 const Home = () => {
-	const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-	return (
-		<Container>
-			<ContactList />
-			<Input open={open} />
-			<AddBtn toggleSlide={setOpen} />
-		</Container>
-	);
+  return (
+    <Container>
+      <ContactList />
+      <Input open={open} toggleSlide={setOpen} />
+      <AddBtn toggleSlide={setOpen} />
+      <AlertBox />
+    </Container>
+  );
 };
 export default Home;

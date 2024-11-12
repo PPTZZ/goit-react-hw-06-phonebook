@@ -1,4 +1,4 @@
-import { Delete, Edit } from '@mui/icons-material';
+import { Delete } from '@mui/icons-material';
 import { IconButton, Paper, Stack, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -12,7 +12,7 @@ const Contact = ({ name, number, id }) => {
     dispatch(removeContact(contactId));
   };
   return (
-    <Paper elevation={2} id={id} role='presentation'>
+    <Paper elevation={2} id={id} role='presentation' sx={{mt:2}}>
       <Stack
         direction={'row'}
         alignItems={'center'}
@@ -29,9 +29,6 @@ const Contact = ({ name, number, id }) => {
         <Stack>
           <IconButton onClick={handleDelete}>
             <Delete />
-          </IconButton>
-          <IconButton>
-            <Edit />
           </IconButton>
         </Stack>
       </Stack>

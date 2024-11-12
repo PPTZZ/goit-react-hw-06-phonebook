@@ -7,14 +7,18 @@ const AddBtn = ({ toggleSlide }) => {
 		<Box
 			sx={{
 				position: 'absolute',
-				right: '40px',
-				bottom: '30px',
+				right: '50px',
+				bottom: '80px',
 				transform: 'translateY(50%)',
 				bgcolor: 'inherit',
 			}}
 		>
-			<IconButton onClick={() => toggleSlide((state) => (state = !state))}>
-				<Add />
+			<IconButton sx={{bgcolor:'white'}} onClick={() => toggleSlide((state) => (state = !state))}>
+				<Add sx={{
+					height:'50px',
+					width:'50px',
+					m:0
+				}} />
 			</IconButton>
 		</Box>
 	);
