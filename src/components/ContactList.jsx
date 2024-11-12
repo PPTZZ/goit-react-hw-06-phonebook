@@ -1,4 +1,4 @@
-import { Collapse, Stack } from '@mui/material';
+import { Collapse} from '@mui/material';
 import Contact from './Contact';
 import { useSelector } from 'react-redux';
 import { TransitionGroup } from 'react-transition-group';
